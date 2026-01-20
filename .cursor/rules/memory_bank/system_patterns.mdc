@@ -1,0 +1,161 @@
+---
+alwaysApply: true
+---
+
+# System Patterns: Architectural Blueprint
+
+## High-Level Architecture
+
+```mermaid
+flowchart TD
+    User["User/Visitor<br>(Mobile or Desktop)"] --> Browser["Web Browser"]
+    Browser --> HTMLWrapper["HTML Wrapper Page<br>(index.html)"]
+    HTMLWrapper --> IframeContainer["Iframe Container<br>(Full Viewport)"]
+    IframeContainer --> GoogleAppsScript["Google Apps Script<br>Web Application"]
+    GoogleAppsScript --> ECDatabase["EC Database<br>(Efficiency's)"]
+    
+    GoogleAppsScript --> Response["Registration Status<br>Response"]
+    Response --> IframeContainer
+    IframeContainer --> Browser
+    Browser --> User
+```
+
+## Architecture Overview
+The system follows a **wrapper-embed pattern** where a minimal HTML page serves as a container for an embedded Google Apps Script application. This architecture provides clear separation of concerns:
+
+- **Presentation Layer**: HTML wrapper handles responsive design and UI styling
+- **Application Layer**: Google Apps Script handles all business logic and database interactions
+- **Data Layer**: EC database stores visitor registration information
+
+## Key Design Patterns
+
+### 1. Iframe Embedding Pattern
+**Purpose**: Isolate the Google Apps Script application while maintaining full-screen presentation
+
+**Implementation**:
+- Absolute positioning for full viewport coverage
+- No borders or scrollbars
+- Transparent background support
+- Scrolling disabled on iframe (handled by embedded app)
+
+**Rationale**: 
+- Maintains separation between wrapper and application
+- Allows independent updates to backend without frontend changes
+- Preserves security boundaries
+
+### 2. Responsive Design Pattern
+**Purpose**: Ensure consistent experience across all device types
+
+**Implementation**:
+- Viewport meta tag with device-width and no scaling
+- CSS viewport units (vw, vh) for full-screen coverage
+- Overflow hidden to prevent unwanted scrolling
+- Absolute positioning for precise layout control
+
+**Rationale**:
+- Mobile-first approach ensures accessibility
+- Prevents zoom issues on mobile devices
+- Maintains consistent visual appearance
+
+### 3. Minimal Wrapper Pattern
+**Purpose**: Keep frontend complexity minimal while providing necessary styling
+
+**Implementation**:
+- Single HTML file with embedded CSS
+- No external dependencies
+- No JavaScript in wrapper (all logic in embedded app)
+- Dark theme for professional appearance
+
+**Rationale**:
+- Fast loading times
+- Easy maintenance
+- Reduced attack surface
+- Clear separation of concerns
+
+## Technical Decisions
+
+### Decision 1: Iframe vs Direct Integration
+**Chosen**: Iframe embedding  
+**Rationale**: 
+- Google Apps Script is deployed as a web app, best accessed via iframe
+- Maintains security boundaries
+- Allows independent backend updates
+- Simplifies frontend code
+
+**Alternatives Considered**: Direct API integration (rejected due to complexity and security concerns)
+
+### Decision 2: Inline CSS vs External Stylesheet
+**Chosen**: Inline CSS  
+**Rationale**:
+- Single file deployment simplicity
+- No additional HTTP requests
+- Faster initial load
+- Sufficient for minimal styling needs
+
+**Alternatives Considered**: External CSS file (rejected due to added complexity for minimal benefit)
+
+### Decision 3: Dark Theme
+**Chosen**: Dark background (#0b0b0b)  
+**Rationale**:
+- Professional appearance
+- Reduces eye strain
+- Modern aesthetic
+- Consistent with many enterprise applications
+
+**Alternatives Considered**: Light theme (rejected based on design preference)
+
+### Decision 4: Full Viewport Approach
+**Chosen**: 100vw/100vh with absolute positioning  
+**Rationale**:
+- Ensures complete screen coverage
+- Prevents any white space or gaps
+- Works consistently across devices
+- Simplifies layout calculations
+
+**Alternatives Considered**: Percentage-based sizing (rejected due to potential edge cases)
+
+## Component Relationships
+
+### HTML Structure
+```
+html
+└── head
+    ├── meta (charset, viewport)
+    └── style (embedded CSS)
+└── body
+    └── iframe-container (div)
+        └── iframe (Google Apps Script)
+```
+
+### CSS Architecture
+- **Global Reset**: body, html margin/padding reset
+- **Container Layer**: iframe-container for positioning
+- **Content Layer**: iframe for embedded application
+
+## Data Flow
+
+1. **User Request**: User accesses `visitors.efficiencys.com.sa`
+2. **Page Load**: HTML wrapper loads with iframe container
+3. **Script Load**: Google Apps Script application loads in iframe
+4. **User Interaction**: User interacts with embedded application
+5. **Database Query**: Google Apps Script queries EC database
+6. **Response Display**: Results displayed within iframe
+7. **User Feedback**: User receives registration status information
+
+## Security Considerations
+- Iframe sandboxing (implicit via iframe isolation)
+- No direct database access from frontend
+- All sensitive operations handled by Google Apps Script
+- HTTPS required for Google Apps Script deployment
+
+## Scalability Patterns
+- **Horizontal Scaling**: Not applicable (static HTML file)
+- **Load Handling**: Google Apps Script handles concurrent requests
+- **Caching**: Browser caching of HTML wrapper
+- **CDN Potential**: HTML wrapper can be served via CDN if needed
+
+## Maintenance Patterns
+- **Frontend Updates**: Modify HTML file directly
+- **Backend Updates**: Update Google Apps Script independently
+- **No Build Process**: Direct file editing and deployment
+- **Version Control**: Single file makes versioning straightforward

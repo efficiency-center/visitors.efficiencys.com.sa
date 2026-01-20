@@ -1,0 +1,26 @@
+---
+alwaysApply: true
+---
+
+# Visitor Login Check System
+
+## Overview
+A visitor management system for checking whether users are already registered in the Efficiency's (EC) database. The system provides a responsive web interface that integrates with a Google Apps Script backend to query and verify visitor registration status.
+
+## Architecture
+- **Frontend**: Minimal HTML wrapper page with responsive design
+- **Backend**: Google Apps Script web application (embedded via iframe)
+- **Database**: EC (Efficiency's) database for visitor registration records
+- **Domain**: visitors.efficiencys.com.sa
+
+## Key Features
+- **Visitor Registration Check**: Verifies if a user is already registered in the EC database
+- **Responsive Design**: Optimized for both mobile devices and desktop screens
+- **Full-Screen Interface**: Clean, distraction-free UI with dark theme (#0b0b0b)
+- **Seamless Integration**: Google Apps Script embedded via iframe for backend functionality
+
+## Technical Details
+- Single-page HTML application
+- Google Apps Script handles database queries and user verification
+- Mobile-optimized viewport settings (no zoom/scaling)
+- Full viewport iframe container for embedded application 

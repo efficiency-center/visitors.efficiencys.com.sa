@@ -1,0 +1,162 @@
+---
+alwaysApply: true
+---
+
+# Technical Context: Environment Specification
+
+## Technology Stack
+
+### Frontend Technologies
+- **HTML5**: Markup language for page structure
+- **CSS3**: Styling and responsive design
+- **No JavaScript**: Frontend contains no JavaScript (all logic in embedded app)
+
+### Backend Technologies
+- **Google Apps Script**: Web application platform for backend logic
+- **Google Sheets/External Database**: EC database (Efficiency's) for visitor records
+
+### Deployment
+- **Web Server**: Standard HTTP server (Apache, Nginx, or hosting service)
+- **Domain**: `visitors.efficiencys.com.sa`
+- **Protocol**: HTTPS (required for Google Apps Script iframe embedding)
+
+## Development Environment
+
+### Local Development
+- **Server**: Python HTTP server (`python3 -m http.server 8000`)
+- **Browser Testing**: Standard web browsers (Chrome, Firefox, Safari, Edge)
+- **Device Testing**: Mobile devices (iOS/Android) and desktop browsers
+
+### File Structure
+```
+visitors.efficiencys.com.sa/
+├── index.html          # Main HTML wrapper file
+└── .cursor/
+    └── rules/
+        ├── memory_bank/    # Memory bank documentation
+        └── *.mdc          # Project intelligence files
+```
+
+## Dependencies
+
+### Runtime Dependencies
+- **None**: Pure HTML/CSS, no external libraries or frameworks
+- **Google Apps Script**: External service (embedded via iframe)
+
+### Development Dependencies
+- **None**: No build tools, package managers, or compilers required
+- **Python 3**: Optional, for local development server
+
+## Browser Compatibility
+
+### Supported Browsers
+- **Chrome**: Latest version (recommended)
+- **Firefox**: Latest version
+- **Safari**: Latest version (iOS and macOS)
+- **Edge**: Latest version
+- **Mobile Browsers**: iOS Safari, Chrome Mobile, Firefox Mobile
+
+### Required Features
+- HTML5 iframe support
+- CSS3 viewport units (vw, vh)
+- CSS3 absolute positioning
+- Meta viewport tag support
+
+## Technical Constraints
+
+### Performance Requirements
+- **Initial Load**: < 3 seconds on 3G connection
+- **Page Size**: Minimal (HTML file < 5KB)
+- **No Blocking Resources**: All resources load asynchronously
+
+### Security Requirements
+- **HTTPS**: Required for production deployment
+- **Content Security Policy**: Should be configured by hosting provider
+- **Iframe Security**: Relies on Google Apps Script security model
+
+### Accessibility Requirements
+- **Mobile Accessibility**: Touch-friendly interface
+- **Screen Reader**: Compatible (inherits from embedded app)
+- **Keyboard Navigation**: Supported (inherits from embedded app)
+
+## Google Apps Script Integration
+
+### Script URL
+```
+https://script.google.com/macros/s/AKfycbx9Y-fTEJGGz4r3lWg7rlZWyCBsAMfDb2VulfWVeaPMDVbQyuZPL3dSoaCL9CFYuGYV7g/exec
+```
+
+### Iframe Attributes
+- `src`: Google Apps Script deployment URL
+- `allowtransparency`: true (for seamless integration)
+- `scrolling`: no (prevents iframe scrollbars)
+
+### Integration Requirements
+- **CORS**: Handled by Google Apps Script
+- **Authentication**: Managed by Google Apps Script
+- **Error Handling**: Managed by Google Apps Script
+
+## Database Integration
+
+### Database System
+- **Type**: EC (Efficiency's) database
+- **Access**: Via Google Apps Script only
+- **No Direct Access**: Frontend has no database connection
+
+### Data Flow
+1. User input → Google Apps Script
+2. Google Apps Script → EC Database query
+3. EC Database → Google Apps Script response
+4. Google Apps Script → Iframe display
+
+## Deployment Configuration
+
+### Production Environment
+- **Domain**: `visitors.efficiencys.com.sa`
+- **Protocol**: HTTPS
+- **Server**: Standard web server (configuration depends on hosting provider)
+
+### File Deployment
+- Single `index.html` file
+- No build process required
+- Direct file upload to web server
+
+### Server Configuration
+- **MIME Types**: `text/html` for `.html` files
+- **Cache Control**: Can be configured for optimal performance
+- **Compression**: Gzip/Brotli recommended but not required
+
+## Development Tools
+
+### Recommended Tools
+- **Code Editor**: Any text editor or IDE (VS Code, Cursor, etc.)
+- **Browser DevTools**: For testing and debugging
+- **Local Server**: Python HTTP server or similar
+- **Version Control**: Git (recommended)
+
+### Testing Tools
+- **Browser DevTools**: Responsive design testing
+- **Device Emulation**: Chrome DevTools device emulation
+- **Real Devices**: Physical mobile devices for final testing
+
+## Version Information
+
+### HTML/CSS Standards
+- **HTML**: HTML5
+- **CSS**: CSS3
+- **No Framework Version**: Pure standards-based implementation
+
+### Python (Development Only)
+- **Version**: Python 3.x
+- **Module**: `http.server` (standard library)
+
+## Environment Variables
+- **None**: No environment variables required
+- **Configuration**: All configuration is in HTML file
+
+## Build Process
+- **None**: No build, compilation, or transpilation required
+- **Deployment**: Direct file copy to web server
+
+## API Dependencies
+- **Google Apps Script API**: Embedded application (no direct API calls from frontend)

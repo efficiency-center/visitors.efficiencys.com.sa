@@ -1,0 +1,53 @@
+---
+alwaysApply: true
+---
+
+# Project Brief: Visitor Login Check System
+
+## Core Purpose
+This project provides a visitor management system that enables real-time verification of whether users are already registered in the Efficiency's (EC) database. The system serves as a check-in interface for visitors to determine their registration status before proceeding with their visit or related activities.
+
+## Primary Objectives
+1. **User Verification**: Provide a reliable mechanism to check if a visitor is registered in the EC database
+2. **Accessibility**: Ensure the system is accessible on both mobile devices and desktop computers
+3. **Seamless Integration**: Maintain a clean, minimal interface that integrates smoothly with the Google Apps Script backend
+4. **User Experience**: Deliver a distraction-free, full-screen interface optimized for visitor check-in workflows
+
+## Key Deliverables
+- Responsive HTML wrapper page that works across all device types
+- Integration with Google Apps Script backend for database queries
+- Mobile-optimized viewport configuration
+- Dark-themed UI for professional appearance
+
+## Stakeholder Expectations
+- System must be accessible at `visitors.efficiencys.com.sa`
+- Interface must be intuitive and require minimal user training
+- System must provide accurate, real-time database verification
+- Performance must be sufficient for concurrent visitor check-ins
+
+## Project Scope
+**In Scope:**
+- HTML wrapper page with responsive design
+- Iframe integration with Google Apps Script backend
+- Mobile and desktop optimization
+- UI styling and theming
+
+**Out of Scope:**
+- Direct database access or modifications
+- User authentication or session management (handled by Google Apps Script)
+- Backend logic or database queries (handled by Google Apps Script)
+- Additional features beyond visitor registration checking
+
+## Absolute Constraints
+- Must maintain compatibility with the existing Google Apps Script URL
+- Must preserve iframe functionality and attributes
+- Must not interfere with the embedded application's functionality
+- Must maintain responsive design principles
+- Domain constraint: `visitors.efficiencys.com.sa`
+
+## Success Criteria
+- System successfully loads and displays the Google Apps Script application
+- Interface is fully functional on mobile devices (phones and tablets)
+- Interface is fully functional on desktop browsers
+- No visual or functional regressions in the embedded application
+- Fast load times and smooth user experience

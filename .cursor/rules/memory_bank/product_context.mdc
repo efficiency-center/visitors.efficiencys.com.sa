@@ -1,0 +1,86 @@
+---
+alwaysApply: true
+---
+
+# Product Context: Visitor Login Check System
+
+## Problem Statement
+Organizations need an efficient way to verify whether visitors are already registered in their database before they arrive or during check-in. Manual verification processes are time-consuming, error-prone, and create bottlenecks at entry points. There is a need for a quick, accessible system that can instantly check visitor registration status.
+
+## Target Audience
+**Primary Users:**
+- **Visitors to Efficiency's (EC)**: Individuals who need to verify their registration status before or during their visit
+- **Reception/Check-in Staff**: Personnel who may assist visitors in using the system
+
+**User Characteristics:**
+- May be using mobile devices (phones/tablets) on-the-go
+- May be using desktop computers at reception areas
+- Varying levels of technical proficiency
+- Need quick, immediate results
+
+## User Personas
+
+### Persona 1: Mobile Visitor
+- **Name**: Mobile Visitor
+- **Context**: Arriving at location, using smartphone
+- **Goals**: Quickly check registration status while on-the-go
+- **Pain Points**: Small screen, need for fast loading, touch-friendly interface
+- **Success Criteria**: Can complete check-in within 30 seconds on mobile device
+
+### Persona 2: Desktop User
+- **Name**: Reception Staff / Desktop Visitor
+- **Context**: Using desktop computer at reception or office
+- **Goals**: Verify visitor registration efficiently
+- **Pain Points**: Need for clear, readable interface, professional appearance
+- **Success Criteria**: Clear visual feedback, easy to use, professional appearance
+
+## User Stories
+
+### Story 1: Mobile Check-in
+**As a** visitor arriving at the location  
+**I want to** check my registration status on my mobile phone  
+**So that** I can quickly verify if I'm in the system before entering
+
+**Acceptance Criteria:**
+- Page loads quickly on mobile network
+- Interface is touch-friendly and readable on small screens
+- No horizontal scrolling required
+- Registration check completes successfully
+
+### Story 2: Desktop Verification
+**As a** reception staff member  
+**I want to** use the system on a desktop computer  
+**So that** I can help visitors verify their registration status
+
+**Acceptance Criteria:**
+- Interface displays clearly on desktop screens
+- System is easy to navigate with mouse/keyboard
+- Professional appearance suitable for office environment
+
+### Story 3: Cross-Device Consistency
+**As a** visitor  
+**I want to** have the same experience whether I use mobile or desktop  
+**So that** I know what to expect regardless of my device
+
+**Acceptance Criteria:**
+- Consistent functionality across all devices
+- Same visual design and branding
+- No feature differences between platforms
+
+## Critical Success Factors (User Perspective)
+
+1. **Speed**: System must load and respond quickly (< 3 seconds initial load)
+2. **Reliability**: Database queries must be accurate and consistent
+3. **Accessibility**: Must work on all common devices and browsers
+4. **Clarity**: Results must be clear and unambiguous
+5. **Professional Appearance**: Interface must reflect the organization's standards
+
+## Product Vision
+A seamless, device-agnostic visitor verification system that provides instant, accurate registration status checks. The system should feel like a natural extension of the organization's digital infrastructure, requiring no training and providing immediate value to both visitors and staff.
+
+## User Experience Principles
+- **Minimalism**: Clean, distraction-free interface
+- **Responsiveness**: Fast loading and immediate feedback
+- **Accessibility**: Works on any device, any screen size
+- **Clarity**: Clear visual hierarchy and unambiguous results
+- **Professionalism**: Dark theme, modern design, polished appearance
